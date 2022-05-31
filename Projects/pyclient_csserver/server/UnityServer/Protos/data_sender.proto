@@ -1,0 +1,19 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "UnityServer";
+
+package ai_economist;
+
+service DataSender {
+  rpc SendData (Data) returns (Status) {}
+  rpc SendDataNoReturn (Data) returns (google.protobuf.Empty) {}
+}
+
+message Data {
+  int32 num = 1;
+}
+
+message Status {
+  int32 state = 1;
+}

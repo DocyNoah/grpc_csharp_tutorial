@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientProject";
+
+package packagename;
+
+service ServiceName {
+  rpc SayHello (MessageInput) returns (MessageOutput) {}
+}
+
+message MessageInput {
+  string message_in = 1;
+}
+
+message MessageOutput {
+  string message_out = 1;
+}

@@ -1,0 +1,31 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "EcoCsServer";
+
+service AIEconomist {
+  rpc GetWorldMap (Time) returns (MapData) {}
+  rpc SendWorldMap (MapData) returns (google.protobuf.Empty) {}
+}
+
+message Time {
+  int32 step = 1;
+}
+
+message MapData {
+  repeated Pair agent_locs = 1;
+  Pair world_size = 2;
+  Map1DArray stone_map = 3;
+  Map1DArray wood_map = 4;
+  Map1DArray water_map = 5;
+  repeated Map1DArray house_maps = 6;
+}
+
+message Pair {
+  int32 row = 1;
+  int32 col = 2;
+}
+
+message Map1DArray {
+  repeated double f = 1;
+}
